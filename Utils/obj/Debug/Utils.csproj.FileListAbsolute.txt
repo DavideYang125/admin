@@ -1,0 +1,8 @@
+F:\admin\project\admin\Utils\bin\Debug\Utils.dll
+F:\admin\project\admin\Utils\bin\Debug\Utils.pdb
+F:\admin\project\admin\Utils\bin\Debug\Newtonsoft.Json.dll
+F:\admin\project\admin\Utils\bin\Debug\Newtonsoft.Json.xml
+F:\admin\project\admin\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache
+F:\admin\project\admin\Utils\obj\Debug\Utils.csproj.CoreCompileInputs.cache
+F:\admin\project\admin\Utils\obj\Debug\Utils.dll
+F:\admin\project\admin\Utils\obj\Debug\Utils.pdb

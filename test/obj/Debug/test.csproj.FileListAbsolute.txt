@@ -1,0 +1,9 @@
+F:\admin\project\admin\test\bin\Debug\test.exe.config
+F:\admin\project\admin\test\bin\Debug\test.exe
+F:\admin\project\admin\test\bin\Debug\test.pdb
+F:\admin\project\admin\test\bin\Debug\Newtonsoft.Json.dll
+F:\admin\project\admin\test\bin\Debug\Newtonsoft.Json.xml
+F:\admin\project\admin\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+F:\admin\project\admin\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+F:\admin\project\admin\test\obj\Debug\test.exe
+F:\admin\project\admin\test\obj\Debug\test.pdb

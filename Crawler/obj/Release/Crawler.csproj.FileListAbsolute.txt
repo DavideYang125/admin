@@ -1,0 +1,12 @@
+F:\admin\project\admin\Crawler\bin\Release\Crawler.exe.config
+F:\admin\project\admin\Crawler\bin\Release\Crawler.exe
+F:\admin\project\admin\Crawler\bin\Release\Crawler.pdb
+F:\admin\project\admin\Crawler\bin\Release\HtmlAgilityPack.dll
+F:\admin\project\admin\Crawler\bin\Release\Newtonsoft.Json.dll
+F:\admin\project\admin\Crawler\bin\Release\HtmlAgilityPack.pdb
+F:\admin\project\admin\Crawler\bin\Release\HtmlAgilityPack.xml
+F:\admin\project\admin\Crawler\bin\Release\Newtonsoft.Json.xml
+F:\admin\project\admin\Crawler\obj\Release\Crawler.csproj.CoreCompileInputs.cache
+F:\admin\project\admin\Crawler\obj\Release\Crawler.exe
+F:\admin\project\admin\Crawler\obj\Release\Crawler.pdb
+F:\admin\project\admin\Crawler\obj\Release\Crawler.csprojResolveAssemblyReference.cache
