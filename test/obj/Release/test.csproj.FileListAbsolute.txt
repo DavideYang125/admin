@@ -1,0 +1,10 @@
+F:\admin\project\admin\test\bin\Release\test.exe.config
+F:\admin\project\admin\test\bin\Release\test.exe
+F:\admin\project\admin\test\bin\Release\test.pdb
+F:\admin\project\admin\test\bin\Release\Newtonsoft.Json.dll
+F:\admin\project\admin\test\bin\Release\Newtonsoft.Json.xml
+F:\admin\project\admin\test\obj\Release\test.csproj.CoreCompileInputs.cache
+F:\admin\project\admin\test\obj\Release\test.exe
+F:\admin\project\admin\test\obj\Release\test.pdb
+F:\admin\project\admin\test\obj\Release\test.csprojAssemblyReference.cache
+F:\admin\project\admin\test\obj\Release\test.csproj.CopyComplete

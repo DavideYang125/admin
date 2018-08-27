@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using ToolKit;
 
 namespace test
 {
-	class Program
+	public	class Program
 	{
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
+			ToolKit.Mail.SendQQMail("d", "test","testmail");
+
 		}
-	}
+
+    }
 }

@@ -92,9 +92,8 @@ namespace Crawler.NetWork.Utils
 		/// </summary>
 		/// <param name="url">网络下载路径</param>
 		/// <param name="path">存放文件路径</param>
-		/// <param name="articleLink"></param>
 		/// <returns>是否下载成功</returns>
-		public static bool DownFileMethod(string url, string path, string articleLink = "")
+		public static bool DownFileMethod(string url, string path)
 		{
 			var myWebClient = new WebClient();
 			bool isDown = false;

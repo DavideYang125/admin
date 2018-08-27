@@ -5,12 +5,39 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Crawler.Spider;
+using Utils;
+
 
 namespace Crawler
 {
-	class Program
+	public class Program
 	{
 		static void Main(string[] args)
+		{
+			string orderStr = string.Empty;
+			if (args.Any())
+			{
+				orderStr = args[0];
+			}
+			else
+			{
+				Console.WriteLine(@"9gag采集：输入 gag");
+				Console.WriteLine(@"aiqiyi采集：输入 aiqiyi");
+				orderStr = Console.ReadLine().Trim().ToLower();
+				Console.WriteLine(@"您输入的是:" + orderStr);
+			}
+			switch (orderStr)
+			{
+				case "gag":
+					GagSpiderRun();
+					break;
+				case "aiqiyi":
+					AiqiyiSpider.GetAiqiyiVideos();
+					break;
+
+			}
+		}
+		public static void GagSpiderRun()
 		{
 			while (true)
 			{
@@ -18,5 +45,6 @@ namespace Crawler
 				Thread.Sleep(600000);
 			}
 		}
+
 	}
 }
