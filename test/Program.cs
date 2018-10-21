@@ -13,9 +13,10 @@ namespace test
 	{
 		public static void Main(string[] args)
 		{
-			ToolKit.Mail.SendQQMail("d", "test","testmail");
-
-		}
-
+            MediaHelper.CutOneSecondForVideo(@"F:\Project\video\eu\testvideo\1.mp4");
+            var t = EncryptionHepler.DecodeBase64("");
+          
+            //ToolKit.Mail.SendQQMail("d", "test","testmail");
+        }
     }
 }

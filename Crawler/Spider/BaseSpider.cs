@@ -1,4 +1,5 @@
-﻿using Crawler.NetWork.Utils;
+﻿using Crawler.IO;
+using Crawler.NetWork.Utils;
 using Crawler.Spider.Models;
 using Newtonsoft.Json;
 using System;
@@ -15,7 +16,7 @@ namespace Crawler.Spider
 	{
 		public static string YoutubeDlPath = @"D:\Soft\youtubedl\youtube-dl.exe";
 		public const string basePath = @"F:\Project\video\cn";
-
+        public static string youtuubeVideoPath = @"F:\Project\video\eu\youtube";
 		/// <summary>
 		/// 第三方工具
 		/// </summary>
@@ -46,9 +47,12 @@ namespace Crawler.Spider
 		/// <returns></returns>
 		public static bool YoutubedlDownload(string url,string saveFilePath)
 		{
-			//检测下载链接
+            var tempSavePath = Path.Combine(saveFilePath, Guid.NewGuid().ToString());
+            Directory.CreateDirectory(tempSavePath);
+            //检测下载链接
+            Console.WriteLine("开始下载:" + url);
 			var checkArguments = string.Format("\"{0}\" -j --write-thumbnail", url);//.Replace("&from=ted","")
-			var checkOutput = StartToolProcess(YoutubeDlPath, checkArguments, saveFilePath);
+			var checkOutput = StartToolProcess(YoutubeDlPath, checkArguments, tempSavePath);
 			VideoInfo checkVideoInfo = null;
 			try
 			{
@@ -64,10 +68,23 @@ namespace Crawler.Spider
 				Console.WriteLine(hint);
 				return false;
 			}
+            var videoType = "mp4";
+            if (url.Contains("bilibili.com")) videoType = "flv";
 			//开始下载
-			var arguments = string.Format("\"{0}\" -f \"mp4\" --write-thumbnail --print-json --newline", url);
-			var output = StartToolProcess(YoutubeDlPath, arguments, saveFilePath);
-			if (File.Exists(saveFilePath)) return false;
+			var arguments = string.Format("\"{0}\" -f \"{1}\" --write-thumbnail --print-json --newline", url, videoType);
+            arguments = string.Format("\"{0}\" -f \"{1}\" --write-thumbnail --print-json --newline", url, videoType);
+            var output = StartToolProcess(YoutubeDlPath, arguments, tempSavePath);
+            var videoPath = FileHandle.GetFirstFileBySuffix(tempSavePath, videoType);
+            if (string.IsNullOrEmpty(videoPath)) return false;
+            ToolKit.MediaHelper.CutOneSecondForVideo(videoPath);
+            var files = Directory.GetFiles(tempSavePath);
+            foreach(var filePath in files)
+            {
+                var fileName = Path.GetFileName(filePath);
+                var newFilePath = Path.Combine(saveFilePath, fileName);
+                File.Move(filePath, newFilePath);
+            }
+            Directory.Delete(tempSavePath);
 			return true;
 		}
 
@@ -115,4 +132,11 @@ namespace Crawler.Spider
 			return str;
 		}
 	}
+    public class SpiderModel
+    {
+        public string videoUrl;
+        public string ImgUrl;
+        public string Title;
+        public Guid Id;
+    }
 }

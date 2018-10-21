@@ -15,3 +15,9 @@ F:\admin\project\admin\test\bin\Debug\Senparc.Weixin.MP.xml
 F:\admin\project\admin\test\bin\Debug\Senparc.Weixin.xml
 F:\admin\project\admin\test\obj\Debug\test.csprojAssemblyReference.cache
 F:\admin\project\admin\test\obj\Debug\test.csproj.CopyComplete
+F:\admin\project\admin\test\bin\Debug\NPOI.dll
+F:\admin\project\admin\test\bin\Debug\NPOI.OOXML.dll
+F:\admin\project\admin\test\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\admin\project\admin\test\bin\Debug\NPOI.OpenXmlFormats.dll
+F:\admin\project\admin\test\bin\Debug\NPOI.OpenXml4Net.dll
+F:\admin\project\admin\test\bin\Debug\NPOI.xml

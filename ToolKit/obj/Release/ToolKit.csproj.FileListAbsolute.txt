@@ -21,3 +21,9 @@ F:\admin\project\admin\ToolKit\obj\Release\ToolKit.csproj.CoreCompileInputs.cach
 F:\admin\project\admin\ToolKit\obj\Release\ToolKit.csproj.CopyComplete
 F:\admin\project\admin\ToolKit\obj\Release\ToolKit.dll
 F:\admin\project\admin\ToolKit\obj\Release\ToolKit.pdb
+F:\admin\project\admin\ToolKit\bin\Release\ICSharpCode.SharpZipLib.dll
+F:\admin\project\admin\ToolKit\bin\Release\NPOI.dll
+F:\admin\project\admin\ToolKit\bin\Release\NPOI.OOXML.dll
+F:\admin\project\admin\ToolKit\bin\Release\NPOI.OpenXml4Net.dll
+F:\admin\project\admin\ToolKit\bin\Release\NPOI.OpenXmlFormats.dll
+F:\admin\project\admin\ToolKit\bin\Release\NPOI.xml

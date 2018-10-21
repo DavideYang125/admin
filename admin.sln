@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler", "Crawler\Crawler.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolKit", "ToolKit\ToolKit.csproj", "{8C2B7A3F-2132-4C7C-A983-C78924B4409C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "音视频处理工具", "音视频处理工具\音视频处理工具.csproj", "{B4EF42BB-4344-4FA3-BB05-D1CF65112181}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{8C2B7A3F-2132-4C7C-A983-C78924B4409C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C2B7A3F-2132-4C7C-A983-C78924B4409C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C2B7A3F-2132-4C7C-A983-C78924B4409C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4EF42BB-4344-4FA3-BB05-D1CF65112181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4EF42BB-4344-4FA3-BB05-D1CF65112181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4EF42BB-4344-4FA3-BB05-D1CF65112181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4EF42BB-4344-4FA3-BB05-D1CF65112181}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

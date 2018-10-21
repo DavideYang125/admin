@@ -13,3 +13,16 @@ F:\admin\project\admin\Crawler\bin\Debug\Utils.dll
 F:\admin\project\admin\Crawler\bin\Debug\Utils.pdb
 F:\admin\project\admin\Crawler\obj\Debug\Crawler.csprojAssemblyReference.cache
 F:\admin\project\admin\Crawler\obj\Debug\Crawler.csproj.CopyComplete
+F:\admin\project\admin\Crawler\bin\Debug\ToolKit.dll
+F:\admin\project\admin\Crawler\bin\Debug\NPOI.dll
+F:\admin\project\admin\Crawler\bin\Debug\Senparc.Weixin.MP.dll
+F:\admin\project\admin\Crawler\bin\Debug\NPOI.OOXML.dll
+F:\admin\project\admin\Crawler\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\admin\project\admin\Crawler\bin\Debug\Senparc.Weixin.dll
+F:\admin\project\admin\Crawler\bin\Debug\NPOI.OpenXmlFormats.dll
+F:\admin\project\admin\Crawler\bin\Debug\NPOI.OpenXml4Net.dll
+F:\admin\project\admin\Crawler\bin\Debug\ToolKit.pdb
+F:\admin\project\admin\Crawler\bin\Debug\ToolKit.dll.config
+F:\admin\project\admin\Crawler\bin\Debug\NPOI.xml
+F:\admin\project\admin\Crawler\bin\Debug\Senparc.Weixin.MP.xml
+F:\admin\project\admin\Crawler\bin\Debug\Senparc.Weixin.xml
