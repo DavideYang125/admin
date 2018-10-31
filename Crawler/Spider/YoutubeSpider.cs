@@ -12,6 +12,7 @@ namespace Crawler.Spider
         private static string youtubeVideoPath = @"F:\Project\video\eu\youtube";
         private static string iqiyiVideoPath = @"F:\Project\video\cn\aiqiyi";
         private static string bilibiliVideoPath = @"F:\Project\video\cn\bilibili";
+        private static string youkuVideoPath = @"F:\Project\video\cn\youku";
         public static void DownloadSingleYoutube()
         {
             try
@@ -22,6 +23,8 @@ namespace Crawler.Spider
                 var basePath = youtubeVideoPath;
                 if (url.Contains("iqiyi.com")) basePath = iqiyiVideoPath;
                 if (url.Contains("bilibili.com")) basePath = bilibiliVideoPath;
+                if (url.Contains("youku.com")) basePath = youkuVideoPath;
+                if (!Directory.Exists(basePath)) Directory.CreateDirectory(basePath);
                 var todayDir = Path.Combine(basePath, DateTime.Now.ToString("yyyyMMdd"));
                 if (!Directory.Exists(todayDir)) Directory.CreateDirectory(todayDir);
 

@@ -59,7 +59,7 @@ namespace ToolKit
             var dir = Path.GetDirectoryName(path);
             var fileName = Path.GetFileNameWithoutExtension(path);
             var exten = Path.GetExtension(path);
-            var newPath = Path.Combine(dir, fileName + "_cut1" + exten);
+            var newPath = Path.Combine(dir, fileName + "!" + exten);
             var duration = GetAudioDuration(path);
 
             var infos = duration.Split('.');

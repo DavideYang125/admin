@@ -17,14 +17,15 @@ namespace Crawler.Spider
 		public static string YoutubeDlPath = @"D:\Soft\youtubedl\youtube-dl.exe";
 		public const string basePath = @"F:\Project\video\cn";
         public static string youtuubeVideoPath = @"F:\Project\video\eu\youtube";
-		/// <summary>
-		/// 第三方工具
-		/// </summary>
-		/// <param name="toolPath"></param>
-		/// <param name="arguments"></param>
-		/// <param name="workingDir"></param>
-		/// <returns></returns>
-		public static string StartToolProcess(string toolPath, string arguments, string workingDir = "")
+        private static string yougetPath = @"D:\tool\you-get.exe";
+        /// <summary>
+        /// 第三方工具
+        /// </summary>
+        /// <param name="toolPath"></param>
+        /// <param name="arguments"></param>
+        /// <param name="workingDir"></param>
+        /// <returns></returns>
+        public static string StartToolProcess(string toolPath, string arguments, string workingDir = "")
 		{
 			var output = string.Empty;
 			var startInfo = new ProcessStartInfo(toolPath, arguments)
@@ -60,12 +61,13 @@ namespace Crawler.Spider
 			}
 			catch (Exception ex)
 			{
-				return false;
+                if(url.Contains("youtube.com"))
+                    return false;
 			}
-			if (checkVideoInfo == null)
+			if (checkVideoInfo == null&&url.Contains("youtube.com"))
 			{
-				var hint = string.Format($"未检测到 {url} 下有可用下载链接");
-				Console.WriteLine(hint);
+				var printInfo = string.Format($"未检测到 {url} 下有可用下载链接");
+				Console.WriteLine(printInfo);
 				return false;
 			}
             var videoType = "mp4";
@@ -75,8 +77,11 @@ namespace Crawler.Spider
             arguments = string.Format("\"{0}\" -f \"{1}\" --write-thumbnail --print-json --newline", url, videoType);
             var output = StartToolProcess(YoutubeDlPath, arguments, tempSavePath);
             var videoPath = FileHandle.GetFirstFileBySuffix(tempSavePath, videoType);
+            
             if (string.IsNullOrEmpty(videoPath)) return false;
-            ToolKit.MediaHelper.CutOneSecondForVideo(videoPath);
+            var NormalVideoPath = GetNewFilePath(videoPath);
+            File.Move(videoPath, NormalVideoPath);
+            ToolKit.MediaHelper.CutOneSecondForVideo(NormalVideoPath);
             var files = Directory.GetFiles(tempSavePath);
             foreach(var filePath in files)
             {
@@ -88,7 +93,49 @@ namespace Crawler.Spider
 			return true;
 		}
 
-		public virtual bool DownloadFile(string url, string saveFilePath)
+        public static bool YouGetDownLoad(string url, string saveFilePath)
+        {
+            var tempSavePath = Path.Combine(saveFilePath, Guid.NewGuid().ToString());
+            Directory.CreateDirectory(tempSavePath);
+            var arguments = url;
+            var output = StartToolProcess(yougetPath, arguments, tempSavePath);
+            var videoType = "mp4";
+            var videoPath = FileHandle.GetFirstFileBySuffix(tempSavePath, videoType);
+
+            if (string.IsNullOrEmpty(videoPath)) return false;
+            var NormalVideoPath = GetNewFilePath(videoPath);
+            File.Move(videoPath, NormalVideoPath);
+            ToolKit.MediaHelper.CutOneSecondForVideo(NormalVideoPath);
+            var files = Directory.GetFiles(tempSavePath);
+            foreach (var filePath in files)
+            {
+                var fileName = Path.GetFileName(filePath);
+                var newFilePath = Path.Combine(saveFilePath, fileName);
+                File.Move(filePath, newFilePath);
+            }
+            Directory.Delete(tempSavePath);
+            return true;
+        }
+        /// <summary>
+        /// 处理标题
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static string GetNewFilePath(string filePath)
+        {
+            //var fileNameWithExten = Path.GetFileName(filePath);
+            var fileName = Path.GetFileNameWithoutExtension(filePath);
+            var exten = Path.GetExtension(filePath);
+            var dirPath = Path.GetDirectoryName(filePath);
+            var newFileName = fileName;
+            if (newFileName.Trim().StartsWith("："))
+                newFileName = newFileName.Substring(1, newFileName.Length - 1);
+            if (newFileName.Contains("-"))
+                newFileName = newFileName.Substring(0, newFileName.LastIndexOf("-"));
+            return Path.Combine(dirPath, newFileName + exten);
+        }
+
+        public virtual bool DownloadFile(string url, string saveFilePath)
 		{
 			return NetHandle.DownFileMethod(url, saveFilePath);
 		}
