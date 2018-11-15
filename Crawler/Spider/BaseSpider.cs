@@ -46,7 +46,7 @@ namespace Crawler.Spider
 		/// <param name="url"></param>
 		/// <param name="saveFilePath"></param>
 		/// <returns></returns>
-		public static bool YoutubedlDownload(string url,string saveFilePath)
+		public static bool YoutubedlDownload(string url,string saveFilePath, bool cutEnd = false)
 		{
             var tempSavePath = Path.Combine(saveFilePath, Guid.NewGuid().ToString());
             Directory.CreateDirectory(tempSavePath);
@@ -81,7 +81,7 @@ namespace Crawler.Spider
             if (string.IsNullOrEmpty(videoPath)) return false;
             var NormalVideoPath = GetNewFilePath(videoPath);
             File.Move(videoPath, NormalVideoPath);
-            ToolKit.MediaHelper.CutOneSecondForVideo(NormalVideoPath);
+            if(cutEnd) ToolKit.MediaHelper.CutOneSecondForVideo(NormalVideoPath);
             var files = Directory.GetFiles(tempSavePath);
             foreach(var filePath in files)
             {
@@ -93,7 +93,7 @@ namespace Crawler.Spider
 			return true;
 		}
 
-        public static bool YouGetDownLoad(string url, string saveFilePath)
+        public static bool YouGetDownLoad(string url, string saveFilePath, bool cutEnd = false)
         {
             var tempSavePath = Path.Combine(saveFilePath, Guid.NewGuid().ToString());
             Directory.CreateDirectory(tempSavePath);
@@ -105,7 +105,7 @@ namespace Crawler.Spider
             if (string.IsNullOrEmpty(videoPath)) return false;
             var NormalVideoPath = GetNewFilePath(videoPath);
             File.Move(videoPath, NormalVideoPath);
-            ToolKit.MediaHelper.CutOneSecondForVideo(NormalVideoPath);
+            if (cutEnd) ToolKit.MediaHelper.CutOneSecondForVideo(NormalVideoPath);
             var files = Directory.GetFiles(tempSavePath);
             foreach (var filePath in files)
             {

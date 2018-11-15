@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +17,15 @@ namespace Crawler.Spider
             var url = "";
             Console.WriteLine("please input url;");
             url = Console.ReadLine();
-            var baseDir = yougetVideoPath;
-            if (url.Contains("qq.com")) baseDir = tencentVideoPath;
-            BaseSpider.YouGetDownLoad(url, baseDir);
+            var basePath = yougetVideoPath;
+            if (url.Contains("qq.com")) basePath = tencentVideoPath;
+            if (!Directory.Exists(basePath)) Directory.CreateDirectory(basePath);
+            var todayDir = Path.Combine(basePath, DateTime.Now.ToString("yyyyMMdd"));
+            if (!Directory.Exists(todayDir)) Directory.CreateDirectory(todayDir);
+            var cutEnd = false;
+            if (url.EndsWith("@")) cutEnd = true;
+            url = url.Replace("@", "").Trim();
+            BaseSpider.YouGetDownLoad(url, todayDir, cutEnd);
         }  
     }
 }

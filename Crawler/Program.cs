@@ -15,8 +15,10 @@ namespace Crawler
 	{
 		static void Main(string[] args)
 		{
-            YouGetSpider.StartYouGetSpider();
+            TencentVideoSpider.DownloadBuUser();
             return;
+            //YouGetSpider.StartYouGetSpider();
+            //return;
             YoutubeSpider.DownloadSingleYoutube();
             return;
 			string orderStr = string.Empty;

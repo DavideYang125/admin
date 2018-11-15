@@ -20,6 +20,7 @@ namespace Crawler.Spider
                 var url = "";
                 Console.WriteLine("please input url;");
                 url = Console.ReadLine();
+                url = url.Trim();
                 var basePath = youtubeVideoPath;
                 if (url.Contains("iqiyi.com")) basePath = iqiyiVideoPath;
                 if (url.Contains("bilibili.com")) basePath = bilibiliVideoPath;
@@ -27,8 +28,10 @@ namespace Crawler.Spider
                 if (!Directory.Exists(basePath)) Directory.CreateDirectory(basePath);
                 var todayDir = Path.Combine(basePath, DateTime.Now.ToString("yyyyMMdd"));
                 if (!Directory.Exists(todayDir)) Directory.CreateDirectory(todayDir);
-
-                BaseSpider.YoutubedlDownload(url, todayDir);
+                var cutEnd = false;
+                if (url.EndsWith("@")) cutEnd = true;
+                url = url.Replace("@", "").Trim();
+                BaseSpider.YoutubedlDownload(url, todayDir, cutEnd);
             }
             catch(Exception ex)
             {

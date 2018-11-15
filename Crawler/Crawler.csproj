@@ -64,6 +64,7 @@
     <Compile Include="Spider\BaseSpider.cs" />
     <Compile Include="Spider\GagSpider.cs" />
     <Compile Include="Spider\Models\VideoInfo.cs" />
+    <Compile Include="Spider\TencentVideoSpider.cs" />
     <Compile Include="Spider\YouGetSpider.cs" />
     <Compile Include="Spider\YoutubeSpider.cs" />
   </ItemGroup>

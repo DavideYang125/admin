@@ -45,7 +45,9 @@ namespace Crawler.NetWork.Utils
 					}
 					httpClient.Timeout = TimeSpan.FromSeconds(30);
 					message.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36");
-					if (!string.IsNullOrEmpty(referer)) message.Headers.Add("Referer", referer);
+                    if(url.Contains("v.qq.com")) message.Headers.Add("host", "c.v.qq.com");
+
+                    if (!string.IsNullOrEmpty(referer)) message.Headers.Add("Referer", referer);
 					var response = httpClient.SendAsync(message).Result;
 					content = response.Content.ReadAsStringAsync().Result;
 					result = new Tuple<HttpStatusCode, string>(response.StatusCode, content);
