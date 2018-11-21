@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Crawler.Spider
 {
-	public class BaseSpider
+	public class VideoSpiderTools
 	{
 		public static string YoutubeDlPath = @"D:\Soft\youtubedl\youtube-dl.exe";
 		public const string basePath = @"F:\Project\video\cn";

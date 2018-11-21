@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using AForge;
+using AForge.Video;
 
 namespace ToolKit
 {
@@ -151,6 +154,22 @@ namespace ToolKit
                 process.Dispose();
             }
             return message;
+        }
+        public static bool SingleImgToVideo(string imgPath, string videoPath)
+        {
+            
+            //using (VideoFileWriter writer = new VideoFileWriter())
+            //{
+            //    writer.Open(@"d:\myfile.avi", 640, 480, 25, VideoCodec.MPEG4);
+            //    foreach (var file in Directory.GetFiles(@"d:\foo\bar", "*.jpg"))
+            //    {
+            //        writer.WriteVideoFrame(Bitmap.FromFile(file) as Bitmap);
+            //    }
+            //    writer.Close();
+            //}
+
+            if (!File.Exists(videoPath)) return false;
+            return true;
         }
     }
 }

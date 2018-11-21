@@ -76,7 +76,7 @@ namespace Crawler.Spider
 					{
 						Console.WriteLine($"下载--{item.videoUrl}--成功");
 						//RecordFile(id, RecordFileName: existsFileName, path: basePath);
-						BaseSpider.RecordFile(title, recordFile: existsFileName, path: basePath);
+						VideoSpiderTools.RecordFile(title, recordFile: existsFileName, path: basePath);
 					}
 					else
 					{
@@ -87,7 +87,7 @@ namespace Crawler.Spider
 				catch(Exception ex)
 				{
 					Console.WriteLine("异常："+title+"  "+ ex.Message);
-					BaseSpider.RecordFile(title+" @ "+"异常信息：" + ex.Message, exceptionFileName);
+					VideoSpiderTools.RecordFile(title+" @ "+"异常信息：" + ex.Message, exceptionFileName);
 				}
 			}
 		}

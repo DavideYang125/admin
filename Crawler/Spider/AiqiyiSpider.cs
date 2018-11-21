@@ -67,7 +67,7 @@ namespace Crawler.Spider
 				var aNode = liNode.Descendants("a").FirstOrDefault();
 				if (aNode == null) continue;
 				var title = aNode.GetAttributeValue("title", "").Trim();
-				title = BaseSpider.ReplaceQuote(title);
+				title = VideoSpiderTools.ReplaceQuote(title);
 				if (string.IsNullOrEmpty(title)) title = Guid.NewGuid().ToString();
 				if (fileinfos.Contains(title))
 				{
@@ -83,9 +83,9 @@ namespace Crawler.Spider
 				//http://www.iqiyi.com/v_19rre87l8k.html#vfrm=2-4-0-1
 				var childurl = href.Split('#')[0];
 				//var path = Path.Combine(todayDir, title + ".mp4");
-				if (BaseSpider.YoutubedlDownload(childurl, todayDir))
+				if (VideoSpiderTools.YoutubedlDownload(childurl, todayDir))
 				{
-					BaseSpider.RecordFile(title, fileinfoLog);
+					VideoSpiderTools.RecordFile(title, fileinfoLog);
 					Console.WriteLine(title + " 下载完成");
 				}
 				else

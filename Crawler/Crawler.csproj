@@ -61,12 +61,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Spider\AiqiyiSpider.cs" />
-    <Compile Include="Spider\BaseSpider.cs" />
+    <Compile Include="Spider\VideoSpiderTools.cs" />
     <Compile Include="Spider\GagSpider.cs" />
     <Compile Include="Spider\Models\VideoInfo.cs" />
     <Compile Include="Spider\TencentVideoSpider.cs" />
-    <Compile Include="Spider\YouGetSpider.cs" />
-    <Compile Include="Spider\YoutubeSpider.cs" />
+    <Compile Include="Spider\SpiderToolsEntry.cs" />
+    <Compile Include="Spider\YouTubeSpider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

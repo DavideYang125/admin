@@ -15,11 +15,12 @@ namespace Crawler
 	{
 		static void Main(string[] args)
 		{
+            YouTubeSpider.AnalyseVideoList("https://www.youtube.com/watch?v=N9r-6v0kxaE&index=47&list=PLA8NZSto-k4Nh5bRtXJsau1mKByeTOkqe");
             TencentVideoSpider.DownloadBuUser();
             return;
-            //YouGetSpider.StartYouGetSpider();
+            //SpiderToolsEntry.SpiderRun();
             //return;
-            YoutubeSpider.DownloadSingleYoutube();
+            SpiderToolsEntry.SpiderRun();
             return;
 			string orderStr = string.Empty;
 			if (args.Any())
