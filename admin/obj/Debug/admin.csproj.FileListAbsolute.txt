@@ -46,8 +46,8 @@ F:\admin\project\admin\admin\bin\zh-Hans\System.Web.Razor.resources.dll
 F:\admin\project\admin\admin\bin\zh-Hans\System.Web.WebPages.resources.dll
 F:\admin\project\admin\admin\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 F:\admin\project\admin\admin\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+F:\admin\project\admin\admin\obj\Debug\admin.csprojAssemblyReference.cache
 F:\admin\project\admin\admin\obj\Debug\admin.csproj.CoreCompileInputs.cache
+F:\admin\project\admin\admin\obj\Debug\admin.csproj.CopyComplete
 F:\admin\project\admin\admin\obj\Debug\admin.dll
 F:\admin\project\admin\admin\obj\Debug\admin.pdb
-F:\admin\project\admin\admin\obj\Debug\admin.csprojAssemblyReference.cache
-F:\admin\project\admin\admin\obj\Debug\admin.csproj.CopyComplete

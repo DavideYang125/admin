@@ -17,10 +17,12 @@ F:\admin\project\admin\SpiderTools\bin\Debug\Senparc.Weixin.MP.xml
 F:\admin\project\admin\SpiderTools\bin\Debug\Senparc.Weixin.xml
 F:\admin\project\admin\SpiderTools\bin\Debug\Newtonsoft.Json.xml
 F:\admin\project\admin\SpiderTools\obj\Debug\SpiderTools.csprojAssemblyReference.cache
+F:\admin\project\admin\SpiderTools\obj\Debug\MainPage.g.cs
 F:\admin\project\admin\SpiderTools\obj\Debug\MainWindow.g.cs
 F:\admin\project\admin\SpiderTools\obj\Debug\App.g.cs
 F:\admin\project\admin\SpiderTools\obj\Debug\SpiderTools_MarkupCompile.cache
 F:\admin\project\admin\SpiderTools\obj\Debug\SpiderTools_MarkupCompile.lref
+F:\admin\project\admin\SpiderTools\obj\Debug\MainPage.baml
 F:\admin\project\admin\SpiderTools\obj\Debug\MainWindow.baml
 F:\admin\project\admin\SpiderTools\obj\Debug\SpiderTools.g.resources
 F:\admin\project\admin\SpiderTools\obj\Debug\SpiderTools.Properties.Resources.resources
@@ -29,5 +31,3 @@ F:\admin\project\admin\SpiderTools\obj\Debug\SpiderTools.csproj.CoreCompileInput
 F:\admin\project\admin\SpiderTools\obj\Debug\SpiderTools.csproj.CopyComplete
 F:\admin\project\admin\SpiderTools\obj\Debug\SpiderTools.exe
 F:\admin\project\admin\SpiderTools\obj\Debug\SpiderTools.pdb
-F:\admin\project\admin\SpiderTools\obj\Debug\MainPage.g.cs
-F:\admin\project\admin\SpiderTools\obj\Debug\MainPage.baml
