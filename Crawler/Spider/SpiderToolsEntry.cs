@@ -19,6 +19,7 @@ namespace Crawler.Spider
 
         public static void SpiderRun()
         {
+            Console.WriteLine("spider tools:youtube-dl,youget");
             Console.WriteLine("please input url;");
             var url = Console.ReadLine();
             url = url.Trim();

@@ -19,7 +19,7 @@ namespace Crawler.Spider
         private static string basePath = @"F:\Project\video\cn\tencent";
         private static string formatUrl = "http://c.v.qq.com/vchannelinfo?otype=json&uin={0}&qm=1&pagenum={1}&num=24";
         private static string videoDir = @"F:\Project\video\cn\tencent\video_by_user";
-        private static List<string> Analyse(string url, int pageNum, List<string> existVideos, string logPath)
+        private static List<string> Analyse(string url, int pageNum, int lowViewCount)
         {
             if (!Directory.Exists(videoDir)) Directory.CreateDirectory(videoDir);
             //url = "http://v.qq.com/vplus/cb5be02aeda6adbbbac790ee1028a77e/videos";
@@ -47,10 +47,11 @@ namespace Crawler.Spider
                     var childUrlObj = singleVideolst["url"];
                     var childUrl = childUrlObj.Value;
                     Console.WriteLine(childUrl);
+                    var playCountStr = singleVideolst["play_count"].Value;
+                    var playCount = Convert.ToInt32(playCountStr);
+                    if (playCount < lowViewCount) continue;
                     var titleObj= singleVideolst["title"];
                     var title= titleObj.Value;
-                    if (existVideos.Contains(title)) continue;
-                    LogHelper.WriteLogs(title, logPath);
                     urls.Add(childUrl);
                 }
                 Thread.Sleep(2000);
@@ -60,12 +61,14 @@ namespace Crawler.Spider
 
         public static void DownloadBuUser()
         {
-            Console.WriteLine("tencent video采集器,video by user,请输入url:");
+            Console.WriteLine("tencent video spider tool,video by user,please input url:");
             string url = Console.ReadLine();
             Console.WriteLine("请输入采集的页数：");
             var numStr = Console.ReadLine();
             var pageNum = Convert.ToInt32(numStr);
-
+            Console.WriteLine("请输入最低播放量：");
+            var viewCountStr = Console.ReadLine();
+            var viewCount = Convert.ToInt32(viewCountStr);
             Console.WriteLine("开始采集");
             HtmlWeb web = new HtmlWeb();
             var doc = web.Load(url);
@@ -86,12 +89,14 @@ namespace Crawler.Spider
                 if (File.Exists(logPath)) existVideos = File.ReadLines(logPath).ToList();
             }
             
-            List<string> urls = Analyse(url, pageNum, existVideos, logPath);
+            List<string> urls = Analyse(url, pageNum, viewCount);
             foreach (var childUrl in urls)
             {
                 Console.WriteLine("下载--" + childUrl);
                 try
                 {
+                    if (existVideos.Contains(childUrl.Trim())) continue;
+                    LogHelper.WriteLogs(childUrl.Trim(), logPath);
                     VideoSpiderTools.YouGetDownLoad(childUrl, userVideoPath, false);
                     Console.WriteLine(childUrl + "--下载成功");
                     Thread.Sleep(2000);
