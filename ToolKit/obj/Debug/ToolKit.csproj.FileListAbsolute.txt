@@ -27,3 +27,7 @@ F:\admin\project\admin\ToolKit\bin\Debug\NPOI.OOXML.dll
 F:\admin\project\admin\ToolKit\bin\Debug\NPOI.OpenXml4Net.dll
 F:\admin\project\admin\ToolKit\bin\Debug\NPOI.OpenXmlFormats.dll
 F:\admin\project\admin\ToolKit\bin\Debug\NPOI.xml
+F:\admin\project\admin\ToolKit\bin\Debug\AForge.dll
+F:\admin\project\admin\ToolKit\bin\Debug\AForge.Video.dll
+F:\admin\project\admin\ToolKit\bin\Debug\AForge.xml
+F:\admin\project\admin\ToolKit\bin\Debug\AForge.Video.xml

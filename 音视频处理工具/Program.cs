@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace 音视频处理工具
+namespace MediaHandler
 {
     class Program
     {

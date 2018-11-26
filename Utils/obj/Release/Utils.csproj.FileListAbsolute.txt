@@ -1,9 +1,0 @@
-F:\admin\project\admin\Utils\bin\Release\Utils.dll
-F:\admin\project\admin\Utils\bin\Release\Utils.pdb
-F:\admin\project\admin\Utils\bin\Release\Newtonsoft.Json.dll
-F:\admin\project\admin\Utils\bin\Release\Newtonsoft.Json.xml
-F:\admin\project\admin\Utils\obj\Release\Utils.csproj.CoreCompileInputs.cache
-F:\admin\project\admin\Utils\obj\Release\Utils.dll
-F:\admin\project\admin\Utils\obj\Release\Utils.pdb
-F:\admin\project\admin\Utils\obj\Release\Utils.csprojAssemblyReference.cache
-F:\admin\project\admin\Utils\obj\Release\Utils.csproj.CopyComplete
