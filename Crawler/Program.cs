@@ -13,7 +13,9 @@ namespace Crawler
 	{
 		static void Main(string[] args)
 		{
-            TencentVideoSpider.DownloadBuUser();
+            YouTubeSpider.CollectYoutubeVideos();
+            return;
+            TencentVideoSpider.DownloadByUser();
             return;
             SpiderToolsEntry.SpiderRun();
             return;

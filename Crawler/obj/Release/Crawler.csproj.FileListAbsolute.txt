@@ -3,7 +3,6 @@ F:\admin\project\admin\Crawler\bin\Release\Crawler.exe
 F:\admin\project\admin\Crawler\bin\Release\Crawler.pdb
 F:\admin\project\admin\Crawler\bin\Release\HtmlAgilityPack.dll
 F:\admin\project\admin\Crawler\bin\Release\Newtonsoft.Json.dll
-F:\admin\project\admin\Crawler\bin\Release\Utils.dll
 F:\admin\project\admin\Crawler\bin\Release\HtmlAgilityPack.pdb
 F:\admin\project\admin\Crawler\bin\Release\HtmlAgilityPack.xml
 F:\admin\project\admin\Crawler\bin\Release\Newtonsoft.Json.xml

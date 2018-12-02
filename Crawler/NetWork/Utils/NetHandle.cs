@@ -13,48 +13,40 @@ using Crawler.IO;
 
 namespace Crawler.NetWork.Utils
 {
-	public class NetHandle
+	public class NetHandler
 	{
-		/// <summary>
-		/// 访问网站获得状态码和访问后的内容
-		/// </summary>
-		/// <param name="url"></param>
-		/// <param name="checkMimeType">是否检查mimetype类型</param>
-		/// <returns></returns>
-		public static Tuple<HttpStatusCode, string> AccessNetwork(string url, bool checkMimeType = false, string parameter = "", string referer = "")
+		
+		public static Tuple<HttpStatusCode, string> GetHtmlContent(string url, string parameter = "", string referer = "")
 		{
-			Tuple<HttpStatusCode, string> result = new Tuple<HttpStatusCode, string>(HttpStatusCode.Gone, string.Empty);
+			Tuple<HttpStatusCode, string> htmlResult = new Tuple<HttpStatusCode, string>(HttpStatusCode.Gone, string.Empty);
 			string content = string.Empty;
-
 			try
 			{
-
-				var handler = new HttpClientHandler();
-				if (handler.SupportsAutomaticDecompression)
+				var clientHandler = new HttpClientHandler();
+				if (clientHandler.SupportsAutomaticDecompression)
 				{
-					handler.AutomaticDecompression = DecompressionMethods.GZip |
-													 DecompressionMethods.Deflate;
+					clientHandler.AutomaticDecompression = DecompressionMethods.GZip |													 DecompressionMethods.Deflate;
 				}
-				using (var httpClient = new HttpClient(handler))
+				using (var httpClient = new HttpClient(clientHandler))
 				{
-					var message = new HttpRequestMessage(HttpMethod.Get, url);
+					var requestMessage = new HttpRequestMessage(HttpMethod.Get, url);
 					if (!string.IsNullOrEmpty(parameter))
 					{
-						message = new HttpRequestMessage(HttpMethod.Post, url);
-						message.Content = new StringContent(parameter, Encoding.UTF8, "application/json");
+						requestMessage = new HttpRequestMessage(HttpMethod.Post, url);
+						requestMessage.Content = new StringContent(parameter, Encoding.UTF8, "application/json");
 					}
-					httpClient.Timeout = TimeSpan.FromSeconds(30);
-					message.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36");
-                    if(url.Contains("v.qq.com")) message.Headers.Add("host", "c.v.qq.com");
+                    httpClient.Timeout = TimeSpan.FromSeconds(25);
+					requestMessage.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36");
+                    if(url.Contains("v.qq.com")) requestMessage.Headers.Add("host", "c.v.qq.com");
 
-                    if (!string.IsNullOrEmpty(referer)) message.Headers.Add("Referer", referer);
-					var response = httpClient.SendAsync(message).Result;
+                    if (!string.IsNullOrEmpty(referer)) requestMessage.Headers.Add("Referer", referer);
+					var response = httpClient.SendAsync(requestMessage).Result;
 					content = response.Content.ReadAsStringAsync().Result;
-					result = new Tuple<HttpStatusCode, string>(response.StatusCode, content);
+					htmlResult = new Tuple<HttpStatusCode, string>(response.StatusCode, content);
 				}
 			}
 			catch (Exception) { }
-			return result;
+			return htmlResult;
 		}
 
 		/// <summary>
@@ -89,16 +81,10 @@ namespace Crawler.NetWork.Utils
 			}
 		}
 
-		/// <summary>
-		/// 下载文件
-		/// </summary>
-		/// <param name="url">网络下载路径</param>
-		/// <param name="path">存放文件路径</param>
-		/// <returns>是否下载成功</returns>
 		public static bool DownFileMethod(string url, string path)
 		{
 			var myWebClient = new WebClient();
-			bool isDown = false;
+			bool isSucess = false;
 			if (!string.IsNullOrEmpty(url) && url.Trim().StartsWith("//"))
 			{
 				url = "http:" + url;
@@ -110,10 +96,10 @@ namespace Crawler.NetWork.Utils
 
 				myWebClient.DownloadFile(url.Trim(), path);
 				File.SetAttributes(path, FileAttributes.Normal);
-				isDown = true;
+				isSucess = true;
 			}
 			catch (Exception ex) { }
-			return isDown;
+			return isSucess;
 		}
 
 		/// <summary>
@@ -140,13 +126,8 @@ namespace Crawler.NetWork.Utils
 
 			return contentType;
 		}
-
-		/// <summary>
-		/// 从URL中获得文件后缀名
-		/// </summary>
-		/// <param name="url"></param>
-		/// <returns></returns>
-		public static string GetFileSuffixFromUrl(string url, string defaultValue = "")
+		
+		public static string GetSuffixFromUrl(string url, string defaultValue = "")
 		{
 			try
 			{
@@ -165,14 +146,9 @@ namespace Crawler.NetWork.Utils
 			return defaultValue;
 		}
 
-		/// <summary>
-		/// 由于有的网页是经过压缩处理的所以不能直接使用URL来获得XML内容
-		/// </summary>
-		/// <param name="url"></param>
-		/// <returns></returns>
-		public static XDocument EscapeSpecialHtmlContent(string url)
+		public static XDocument GetSpecialHtmlContent(string url)
 		{
-			var htmlContent = AccessNetwork(url, false).Item2;
+			var htmlContent = GetHtmlContent(url).Item2;
 			if (string.IsNullOrEmpty(htmlContent)) return null;
 
 			XmlDocument xmlDocument = new XmlDocument();

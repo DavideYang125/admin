@@ -31,7 +31,7 @@ namespace Crawler.Spider
 
                 var currentUrl = string.Format(formatUrl, currenId, i.ToString());
 
-                var content = NetHandle.AccessNetwork(currentUrl).Item2;
+                var content = NetHandler.GetHtmlContent(currentUrl).Item2;
                 if (string.IsNullOrEmpty(content)) continue;
                 content = content.Trim().Replace("QZOutputJson=", "");
                 content = content.Substring(0, content.Length - 1);
@@ -47,8 +47,20 @@ namespace Crawler.Spider
                     var childUrlObj = singleVideolst["url"];
                     var childUrl = childUrlObj.Value;
                     Console.WriteLine(childUrl);
-                    var playCountStr = singleVideolst["play_count"].Value;
-                    var playCount = Convert.ToInt32(playCountStr);
+                    var playCountStr = Convert.ToString(singleVideolst["play_count"].Value);
+                    var playCount = 0;
+                    //1.6万
+              
+                    if(playCountStr.Contains("万"))
+                    {
+                        playCountStr = playCountStr.Replace("万", "");
+                        var tempCount = Convert.ToDouble(playCountStr);
+                        tempCount = tempCount * 10000;
+                        playCount = (int)tempCount;
+                    }
+                    else
+                        playCount = Convert.ToInt32(playCountStr);
+
                     if (playCount < lowViewCount) continue;
                     var titleObj= singleVideolst["title"];
                     var title= titleObj.Value;
@@ -59,7 +71,7 @@ namespace Crawler.Spider
             return urls;
         }
 
-        public static void DownloadBuUser()
+        public static void DownloadByUser()
         {
             Console.WriteLine("tencent video spider tool,video by user,please input url:");
             string url = Console.ReadLine();
