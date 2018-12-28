@@ -137,7 +137,7 @@ namespace Crawler.Spider
 
         public virtual bool DownloadFile(string url, string saveFilePath)
 		{
-			return NetHandler.DownFileMethod(url, saveFilePath);
+			return NetWorkHandle.DownFileMethod(url, saveFilePath);
 		}
 		/// <summary>
 		/// 记录导入情况

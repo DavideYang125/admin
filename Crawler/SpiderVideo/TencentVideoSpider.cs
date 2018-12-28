@@ -31,7 +31,7 @@ namespace Crawler.Spider
 
                 var currentUrl = string.Format(formatUrl, currenId, i.ToString());
 
-                var content = NetHandler.GetHtmlContent(currentUrl).Item2;
+                var content = NetWorkHandle.GetHtmlContent(currentUrl).Item2;
                 if (string.IsNullOrEmpty(content)) continue;
                 content = content.Trim().Replace("QZOutputJson=", "");
                 content = content.Substring(0, content.Length - 1);

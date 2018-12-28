@@ -131,7 +131,7 @@
     <Compile Include="Libs\String\QueryString.cs" />
     <Compile Include="Libs\String\StringHelper.cs" />
     <Compile Include="LogHelper.cs" />
-    <Compile Include="LrcHelper.cs" />
+    <Compile Include="StringHelper.cs" />
     <Compile Include="Mail.cs" />
     <Compile Include="MediaHelper.cs" />
     <Compile Include="OAuth.cs" />

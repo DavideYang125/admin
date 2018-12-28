@@ -20,7 +20,7 @@ namespace Crawler.Spider
         private static string baseVideoUrlFormat = "https://www.youtube.com/watch?v={0}";
         private static List<string> AnalyseVideoList(string url)
         {
-            var htmlContent = NetHandler.GetHtmlContent(url).Item2;
+            var htmlContent = NetWorkHandle.GetHtmlContent(url).Item2;
             List<string> childUrls = new List<string>();
             HtmlDocument htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(htmlContent);
@@ -44,7 +44,7 @@ namespace Crawler.Spider
             Console.WriteLine("please input youtube url:");
             url = Console.ReadLine();
             Console.WriteLine("开始采集");
-            var htmlContent = NetHandler.GetHtmlContent(url).Item2;
+            var htmlContent = NetWorkHandle.GetHtmlContent(url).Item2;
             var userName = "";
             HtmlDocument htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(htmlContent);
@@ -85,7 +85,7 @@ namespace Crawler.Spider
         private static List<string> AnalyseVideoUrlListByUserVideoUrl(string url)
         {
             var childUrls = new List<string>();
-            var htmlContent = NetHandler.GetHtmlContent(url).Item2;
+            var htmlContent = NetWorkHandle.GetHtmlContent(url).Item2;
             if (string.IsNullOrEmpty(htmlContent)) return childUrls;
             var htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(htmlContent);

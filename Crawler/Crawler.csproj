@@ -57,17 +57,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IO\FileHandle.cs" />
-    <Compile Include="NetWork\Utils\HttpHelper\HttpHelper.cs" />
-    <Compile Include="NetWork\Utils\NetHandle.cs" />
+    <Compile Include="NetWorkLib\Utils\HttpHelper\HttpHelper.cs" />
+    <Compile Include="NetWorkLib\Utils\NetWorkHandle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Spider\AiqiyiSpider.cs" />
-    <Compile Include="Spider\VideoSpiderTools.cs" />
-    <Compile Include="Spider\GagSpider.cs" />
-    <Compile Include="Spider\Models\VideoInfo.cs" />
-    <Compile Include="Spider\TencentVideoSpider.cs" />
-    <Compile Include="Spider\SpiderToolsEntry.cs" />
-    <Compile Include="Spider\YouTubeSpider.cs" />
+    <Compile Include="SpiderVideo\AiqiyiSpider.cs" />
+    <Compile Include="SpiderVideo\VideoSpiderTools.cs" />
+    <Compile Include="SpiderVideo\GagSpider.cs" />
+    <Compile Include="SpiderVideo\Models\VideoInfo.cs" />
+    <Compile Include="SpiderVideo\TencentVideoSpider.cs" />
+    <Compile Include="SpiderVideo\SpiderToolsEntry.cs" />
+    <Compile Include="SpiderVideo\YouTubeSpider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

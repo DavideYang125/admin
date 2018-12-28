@@ -60,7 +60,7 @@ namespace Crawler.Spider
 						Console.WriteLine($"开始下载--{item.ImgUrl}");
 						imgName = title + ".jpg";
 						var imgFilePath = Path.Combine(basePath, imgName);
-						if (NetHandler.DownFileMethod(imgUrl, imgFilePath)) 
+						if (NetWorkHandle.DownFileMethod(imgUrl, imgFilePath)) 
 						{
 							Console.WriteLine($"下载--{item.ImgUrl}--成功");
 						}
@@ -72,7 +72,7 @@ namespace Crawler.Spider
 
 					var videoFilePath = Path.Combine(basePath, videoName);
 
-					if (NetHandler.DownFileMethod(url, videoFilePath))
+					if (NetWorkHandle.DownFileMethod(url, videoFilePath))
 					{
 						Console.WriteLine($"下载--{item.videoUrl}--成功");
 						//RecordFile(id, RecordFileName: existsFileName, path: basePath);
@@ -101,7 +101,7 @@ namespace Crawler.Spider
 				Console.WriteLine("开始分析网页");
 				
 				var gagUrl = "https://9gag.com/video";
-				var htmlContent = NetHandler.GetHtmlContent(gagUrl).Item2;
+				var htmlContent = NetWorkHandle.GetHtmlContent(gagUrl).Item2;
 				//{"id":"  },{"id"
 				Regex infosRegex = new Regex("{\"id\":\""+".*?"+ "{\"id\"");
 				

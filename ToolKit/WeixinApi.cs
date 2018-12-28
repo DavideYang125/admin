@@ -10,8 +10,8 @@ namespace ToolKit
 {
     public class WeixinApi
     {
-		private const string WEIXIN_APPID_FIRST = "wx876a9766c264d457";
-		private const string WEIXIN_APPSECRET_FIRST = "8155cb03c30692041526861ba2f08d1b";
+		private const string WEIXIN_APPID_FIRST = "";
+		private const string WEIXIN_APPSECRET_FIRST = "";
 		public string GetAccessToken(bool refresh=false)
 		{
 			var appId = WEIXIN_APPID_FIRST;

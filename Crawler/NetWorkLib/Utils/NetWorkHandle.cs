@@ -13,7 +13,7 @@ using Crawler.IO;
 
 namespace Crawler.NetWork.Utils
 {
-	public class NetHandler
+	public class NetWorkHandle
 	{
 		
 		public static Tuple<HttpStatusCode, string> GetHtmlContent(string url, string parameter = "", string referer = "")
