@@ -27,3 +27,12 @@ F:\admin\project\admin\ToolKit\bin\Release\NPOI.OOXML.dll
 F:\admin\project\admin\ToolKit\bin\Release\NPOI.OpenXml4Net.dll
 F:\admin\project\admin\ToolKit\bin\Release\NPOI.OpenXmlFormats.dll
 F:\admin\project\admin\ToolKit\bin\Release\NPOI.xml
+F:\admin\project\admin\ToolKit\bin\Release\AForge.dll
+F:\admin\project\admin\ToolKit\bin\Release\AForge.Video.dll
+F:\admin\project\admin\ToolKit\bin\Release\Google.Protobuf.dll
+F:\admin\project\admin\ToolKit\bin\Release\MySql.Data.dll
+F:\admin\project\admin\ToolKit\bin\Release\System.Data.Common.dll
+F:\admin\project\admin\ToolKit\bin\Release\AForge.xml
+F:\admin\project\admin\ToolKit\bin\Release\AForge.Video.xml
+F:\admin\project\admin\ToolKit\bin\Release\Google.Protobuf.xml
+F:\admin\project\admin\ToolKit\bin\Release\MySql.Data.xml

@@ -42,13 +42,20 @@
     <Reference Include="Enyim.Caching.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Enyim.Caching.Web.1.0.0.1\lib\net40\Enyim.Caching.Web.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Membase, Version=2.14.0.0, Culture=neutral, PublicKeyToken=cec98615db04012e, processorArchitecture=MSIL">
       <HintPath>..\packages\Membase.2.14\lib\net35\Membase.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.JScript" />
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.13\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -74,9 +81,19 @@
       <HintPath>..\packages\Senparc.Weixin.MP.14.12.3\lib\net45\Senparc.Weixin.MP.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
@@ -89,6 +106,30 @@
   <ItemGroup>
     <Compile Include="EncryptionHepler.cs" />
     <Compile Include="IO\ExcelHelper.cs" />
+    <Compile Include="Libs\Download_Up\DownLoadHelper.cs" />
+    <Compile Include="Libs\Download_Up\FileDown.cs" />
+    <Compile Include="Libs\Download_Up\FileUp.cs" />
+    <Compile Include="Libs\Download_Up\UpLoadFiles.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Libs\Excel\DataToExcel.cs" />
+    <Compile Include="Libs\Excel\ExcelHelper.cs" />
+    <Compile Include="Libs\Excel\ExportExcel.cs" />
+    <Compile Include="Libs\Excel\GridViewExport.cs" />
+    <Compile Include="Libs\File\DirFileHelper.cs" />
+    <Compile Include="Libs\File\FileOperateHelper.cs" />
+    <Compile Include="Libs\File\INIFileHelper.cs" />
+    <Compile Include="Libs\FTP\FTPClient.cs" />
+    <Compile Include="Libs\FTP\FTPHelper.cs" />
+    <Compile Include="Libs\FTP\FTPOperater.cs" />
+    <Compile Include="Libs\HttpHelper\HttpCookieHelper.cs" />
+    <Compile Include="Libs\HttpHelper\HttpHelper.cs" />
+    <Compile Include="Libs\Jsom\ConvertJson.cs" />
+    <Compile Include="Libs\Jsom\JsonHelper.cs" />
+    <Compile Include="Libs\JS\ExeJsHelper.cs" />
+    <Compile Include="Libs\JS\JsHelper.cs" />
+    <Compile Include="Libs\String\QueryString.cs" />
+    <Compile Include="Libs\String\StringHelper.cs" />
     <Compile Include="LogHelper.cs" />
     <Compile Include="LrcHelper.cs" />
     <Compile Include="Mail.cs" />

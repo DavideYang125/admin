@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using ToolKit;
 
 namespace Crawler.Spider
@@ -55,6 +56,7 @@ namespace Crawler.Spider
             }
             else
                 userName = liNode.InnerText.Trim().ToLower();
+            userName = HttpUtility.HtmlDecode(userName);
             userName = userName.Replace(" ", "_").Replace(" ", "_");
             if (!Directory.Exists(youtubeUserVideoPath)) Directory.CreateDirectory(youtubeUserVideoPath);
             var currentUserPath = Path.Combine(youtubeUserVideoPath, userName);
