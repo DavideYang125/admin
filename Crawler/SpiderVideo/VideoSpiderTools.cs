@@ -86,6 +86,7 @@ namespace Crawler.Spider
             foreach(var filePath in files)
             {
                 var fileName = Path.GetFileName(filePath);
+                fileName = ToolKit.StringHelper.TraditionalToSimplifiedChinese(fileName);
                 var newFilePath = Path.Combine(saveFilePath, fileName);
                 File.Move(filePath, newFilePath);
             }
@@ -97,24 +98,33 @@ namespace Crawler.Spider
         {
             var tempSavePath = Path.Combine(saveFilePath, Guid.NewGuid().ToString());
             Directory.CreateDirectory(tempSavePath);
-            var arguments = url;
-            var output = StartToolProcess(yougetPath, arguments, tempSavePath);
-            var videoType = "mp4";
-            var videoPath = FileHandle.GetFirstFileBySuffix(tempSavePath, videoType);
+            try
+            {               
+                var arguments = url;
+                var output = StartToolProcess(yougetPath, arguments, tempSavePath);
+                var videoType = "mp4";
+                var videoPath = FileHandle.GetFirstFileBySuffix(tempSavePath, videoType);
 
-            if (string.IsNullOrEmpty(videoPath)) return false;
-            var NormalVideoPath = GetNewFilePath(videoPath);
-            File.Move(videoPath, NormalVideoPath);
-            if (cutEnd) ToolKit.MediaHelper.CutOneSecondForVideo(NormalVideoPath);
-            var files = Directory.GetFiles(tempSavePath);
-            foreach (var filePath in files)
-            {
-                var fileName = Path.GetFileName(filePath);
-                var newFilePath = Path.Combine(saveFilePath, fileName);
-                File.Move(filePath, newFilePath);
+                if (string.IsNullOrEmpty(videoPath)) return false;
+                var NormalVideoPath = GetNewFilePath(videoPath);
+                File.Move(videoPath, NormalVideoPath);
+                if (cutEnd) ToolKit.MediaHelper.CutOneSecondForVideo(NormalVideoPath);
+                var files = Directory.GetFiles(tempSavePath);
+                foreach (var filePath in files)
+                {
+                    var fileName = Path.GetFileName(filePath);
+                    var newFilePath = Path.Combine(saveFilePath, fileName);
+                    File.Move(filePath, newFilePath);
+                }
+                Directory.Delete(tempSavePath, true);
+                return true;
             }
-            Directory.Delete(tempSavePath);
-            return true;
+            catch
+            {
+                Directory.Delete(tempSavePath, true);
+                return false;
+            }
+
         }
         /// <summary>
         /// 处理标题
@@ -178,7 +188,22 @@ namespace Crawler.Spider
 				.Replace("(","").Replace(")","").Replace("（","").Replace("）","").Replace(" ","");
 			return str;
 		}
-	}
+        private static bool ImportTaskTimeout(Action method, int minutes)
+        {
+            try
+            {
+                var task = Task.Run(() => method());
+                if (task.Wait(TimeSpan.FromMinutes(minutes)))
+                    return task.IsCompleted;
+                else
+                    return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    }
     public class SpiderModel
     {
         public string videoUrl;

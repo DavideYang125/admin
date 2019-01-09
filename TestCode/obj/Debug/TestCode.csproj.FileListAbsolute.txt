@@ -1,0 +1,6 @@
+F:\admin\project\admin\TestCode\bin\Debug\TestCode.exe.config
+F:\admin\project\admin\TestCode\bin\Debug\TestCode.exe
+F:\admin\project\admin\TestCode\bin\Debug\TestCode.pdb
+F:\admin\project\admin\TestCode\obj\Debug\TestCode.csproj.CoreCompileInputs.cache
+F:\admin\project\admin\TestCode\obj\Debug\TestCode.exe
+F:\admin\project\admin\TestCode\obj\Debug\TestCode.pdb

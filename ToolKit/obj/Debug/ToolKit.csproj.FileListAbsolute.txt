@@ -31,3 +31,8 @@ F:\admin\project\admin\ToolKit\obj\Debug\ToolKit.csproj.CoreCompileInputs.cache
 F:\admin\project\admin\ToolKit\obj\Debug\ToolKit.csproj.CopyComplete
 F:\admin\project\admin\ToolKit\obj\Debug\ToolKit.dll
 F:\admin\project\admin\ToolKit\obj\Debug\ToolKit.pdb
+F:\admin\project\admin\ToolKit\bin\Debug\Google.Protobuf.dll
+F:\admin\project\admin\ToolKit\bin\Debug\MySql.Data.dll
+F:\admin\project\admin\ToolKit\bin\Debug\System.Data.Common.dll
+F:\admin\project\admin\ToolKit\bin\Debug\Google.Protobuf.xml
+F:\admin\project\admin\ToolKit\bin\Debug\MySql.Data.xml

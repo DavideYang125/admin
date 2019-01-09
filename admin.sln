@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiderTools", "SpiderTools\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoHandler", "VideoHandler\VideoHandler.csproj", "{5E598DDC-C7AF-4FB9-8F0A-BA8A3FD57A3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCode", "TestCode\TestCode.csproj", "{0CF8FD9B-0B55-47FC-96B4-A77CCD3441A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5E598DDC-C7AF-4FB9-8F0A-BA8A3FD57A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E598DDC-C7AF-4FB9-8F0A-BA8A3FD57A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E598DDC-C7AF-4FB9-8F0A-BA8A3FD57A3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF8FD9B-0B55-47FC-96B4-A77CCD3441A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF8FD9B-0B55-47FC-96B4-A77CCD3441A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF8FD9B-0B55-47FC-96B4-A77CCD3441A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CF8FD9B-0B55-47FC-96B4-A77CCD3441A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

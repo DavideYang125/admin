@@ -108,9 +108,17 @@ namespace Crawler.Spider
                 try
                 {
                     if (existVideos.Contains(childUrl.Trim())) continue;
-                    LogHelper.WriteLogs(childUrl.Trim(), logPath);
-                    VideoSpiderTools.YouGetDownLoad(childUrl, userVideoPath, false);
-                    Console.WriteLine(childUrl + "--下载成功");
+                    
+                    if (VideoSpiderTools.YouGetDownLoad(childUrl, userVideoPath, false))
+                    {
+                        Console.WriteLine(childUrl + "--下载成功");
+                        LogHelper.WriteLogs(childUrl.Trim(), logPath);
+                    }
+                    else
+                    {
+                        Console.WriteLine(childUrl + "--下载失败");
+                    }
+                    
                     Thread.Sleep(2000);
                 }
                 catch(Exception ex)
