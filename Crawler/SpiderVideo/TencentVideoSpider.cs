@@ -108,17 +108,22 @@ namespace Crawler.Spider
                 try
                 {
                     if (existVideos.Contains(childUrl.Trim())) continue;
-                    
-                    if (VideoSpiderTools.YouGetDownLoad(childUrl, userVideoPath, false))
+
+                    var task = Task.Run(()=>{
+                        if (VideoSpiderTools.YouGetDownLoad(childUrl, userVideoPath, false))
+                        {
+                            Console.WriteLine(childUrl + "--下载成功");
+                            LogHelper.WriteLogs(childUrl.Trim(), logPath);
+                        }
+                        else
+                        {
+                            Console.WriteLine(childUrl + "--下载失败");
+                        }
+                    });
+                    if (!task.Wait(TimeSpan.FromMinutes(10)))
                     {
-                        Console.WriteLine(childUrl + "--下载成功");
-                        LogHelper.WriteLogs(childUrl.Trim(), logPath);
+                        Console.WriteLine(childUrl + "--超时退出，下载失败");
                     }
-                    else
-                    {
-                        Console.WriteLine(childUrl + "--下载失败");
-                    }
-                    
                     Thread.Sleep(2000);
                 }
                 catch(Exception ex)
