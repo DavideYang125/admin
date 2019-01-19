@@ -71,10 +71,9 @@ namespace Crawler.Spider
             return urls;
         }
 
-        public static void DownloadByUser()
+        public static void DownloadByUser(string url)
         {
-            Console.WriteLine("tencent video spider tool,video by user,please input url:");
-            string url = Console.ReadLine();
+          
             Console.WriteLine("请输入采集的页数：");
             var numStr = Console.ReadLine();
             var pageNum = Convert.ToInt32(numStr);
@@ -120,7 +119,7 @@ namespace Crawler.Spider
                             Console.WriteLine(childUrl + "--下载失败");
                         }
                     });
-                    if (!task.Wait(TimeSpan.FromMinutes(10)))
+                    if (!task.Wait(TimeSpan.FromMinutes(3)))
                     {
                         Console.WriteLine(childUrl + "--超时退出，下载失败");
                     }

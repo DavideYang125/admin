@@ -38,11 +38,9 @@ namespace Crawler.Spider
             }
             return childUrls;
         }
-        public static void CollectYoutubeVideos()
+        public static void CollectYoutubeVideos(string url)
         {
-            string url = "";
-            Console.WriteLine("please input youtube url:");
-            url = Console.ReadLine();
+           
             Console.WriteLine("开始采集");
             var htmlContent = NetWorkHandle.GetHtmlContent(url).Item2;
             var userName = "";
