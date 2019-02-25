@@ -35,7 +35,7 @@ namespace Crawler
                 if (url.Contains(tencentDomain))
                 {
                     Console.WriteLine("腾讯系列采集");
-                    TencentVideoSpider.DownloadByUser(url);
+                    TencentVideoSpider.TencentRun(url);
                 }
                 else if (url.Contains(youtubeDomain))
                 {

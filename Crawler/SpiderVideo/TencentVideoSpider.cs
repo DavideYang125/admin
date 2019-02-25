@@ -17,6 +17,7 @@ namespace Crawler.Spider
     public class TencentVideoSpider
     {
         private static string basePath = @"F:\Project\video\cn\tencent";
+        private static string host = "https://v.qq.com";
         private static string formatUrl = "http://c.v.qq.com/vchannelinfo?otype=json&uin={0}&qm=1&pagenum={1}&num=24";
         private static string videoDir = @"F:\Project\video\cn\tencent\video_by_user";
         private static List<string> Analyse(string url, int pageNum, int lowViewCount)
@@ -50,8 +51,8 @@ namespace Crawler.Spider
                     var playCountStr = Convert.ToString(singleVideolst["play_count"].Value);
                     var playCount = 0;
                     //1.6万
-              
-                    if(playCountStr.Contains("万"))
+
+                    if (playCountStr.Contains("万"))
                     {
                         playCountStr = playCountStr.Replace("万", "");
                         var tempCount = Convert.ToDouble(playCountStr);
@@ -62,8 +63,8 @@ namespace Crawler.Spider
                         playCount = Convert.ToInt32(playCountStr);
 
                     if (playCount < lowViewCount) continue;
-                    var titleObj= singleVideolst["title"];
-                    var title= titleObj.Value;
+                    var titleObj = singleVideolst["title"];
+                    var title = titleObj.Value;
                     urls.Add(childUrl);
                 }
                 Thread.Sleep(2000);
@@ -71,9 +72,9 @@ namespace Crawler.Spider
             return urls;
         }
 
-        public static void DownloadByUser(string url)
+        private static void DownloadByUser(string url)
         {
-          
+
             Console.WriteLine("请输入采集的页数：");
             var numStr = Console.ReadLine();
             var pageNum = Convert.ToInt32(numStr);
@@ -99,7 +100,7 @@ namespace Crawler.Spider
             {
                 if (File.Exists(logPath)) existVideos = File.ReadLines(logPath).ToList();
             }
-            
+
             List<string> urls = Analyse(url, pageNum, viewCount);
             foreach (var childUrl in urls)
             {
@@ -108,7 +109,7 @@ namespace Crawler.Spider
                 {
                     if (existVideos.Contains(childUrl.Trim())) continue;
 
-                    var task = Task.Run(()=>{
+                    var task = Task.Run(() => {
                         if (VideoSpiderTools.YouGetDownLoad(childUrl, userVideoPath, false))
                         {
                             Console.WriteLine(childUrl + "--下载成功");
@@ -125,11 +126,71 @@ namespace Crawler.Spider
                     }
                     Thread.Sleep(2000);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                }              
+                }
             }
         }
+
+        private static void DownloadByList(string url)
+        {
+           
+            var urls = new List<string>();
+            Console.WriteLine("开始采集");
+            HtmlWeb web = new HtmlWeb();
+            var doc = web.Load(url);
+            var content = NetWorkHandle.GetHtmlContent(url);
+            var aa = content;
+            var ulNode = doc.DocumentNode.SelectSingleNode(@"//ul[@class='figure_list']");
+            if (ulNode is null) return;
+            var liNodes = ulNode.Descendants("li");
+            if (liNodes is null) return;
+            foreach (var liNode in liNodes)
+            {
+                var aNode = liNode.Descendants("a").FirstOrDefault();
+                if (aNode is null) continue;
+                var href = aNode.GetAttributeValue("href", "");
+                var childUrl = host + href;
+                Console.WriteLine(childUrl);
+                urls.Add(childUrl);
+            }
+            var todayDir = Path.Combine(basePath, DateTime.Now.ToString("yyyyMMdd"));
+            if (!Directory.Exists(todayDir)) Directory.CreateDirectory(todayDir);
+            foreach (var childUrl in urls)
+            {
+                Console.WriteLine("下载--" + childUrl);
+                try
+                {
+                   
+                    var task = Task.Run(() => {
+                        if (VideoSpiderTools.YouGetDownLoad(childUrl, todayDir, false))
+                        {
+                            Console.WriteLine(childUrl + "--下载成功");
+                            //LogHelper.WriteLogs(childUrl.Trim(), logPath);
+                        }
+                        else
+                        {
+                            Console.WriteLine(childUrl + "--下载失败");
+                        }
+                    });
+                    if (!task.Wait(TimeSpan.FromMinutes(3)))
+                    {
+                        Console.WriteLine(childUrl + "--超时退出，下载失败");
+                    }
+                    Thread.Sleep(2000);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        public static void TencentRun(string url)
+        {
+            if (url.Contains("/vplus/")) DownloadByUser(url);
+            else DownloadByList(url);
+        }
+        
     }
 }

@@ -37,7 +37,7 @@ namespace Crawler.NetWork.Utils
 					}
                     httpClient.Timeout = TimeSpan.FromSeconds(25);
 					requestMessage.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36");
-                    if(url.Contains("v.qq.com")) requestMessage.Headers.Add("host", "c.v.qq.com");
+                    if(url.Contains("c.v.qq.com")) requestMessage.Headers.Add("host", "c.v.qq.com");
 
                     if (!string.IsNullOrEmpty(referer)) requestMessage.Headers.Add("Referer", referer);
 					var response = httpClient.SendAsync(requestMessage).Result;
@@ -45,7 +45,10 @@ namespace Crawler.NetWork.Utils
 					htmlResult = new Tuple<HttpStatusCode, string>(response.StatusCode, content);
 				}
 			}
-			catch (Exception) { }
+			catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
 			return htmlResult;
 		}
 
